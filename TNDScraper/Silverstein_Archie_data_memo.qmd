@@ -1,0 +1,64 @@
+---
+title: "Data Memo"
+subtitle: |
+  | Final Project 
+  | Data Visualization (STAT 302)
+author: "Archie Silverstein"
+
+format:
+  html:
+    toc: true
+    embed-resources: true
+    
+execute:
+  echo: false
+  warning: false
+
+from: markdown+emoji 
+---
+
+```{r}
+# load packages & data
+library(tidyverse)
+
+# load my csv
+#tnd_data <- read.csv("data/TNDScraper.csv")
+```
+
+### Data source
+
+For my final project I would like to map out the reviews made by the YouTube Channel: [**theneedledrop** on YouTube](https://www.youtube.com/user/theneedledrop). The channel's owner, Anthony Fantano (*the internet's busiest music nerd*) has been reviewing LPs on YouTube for 13 years now, and in the past year, I have become one of his biggest fans. For this final project, I have used JavaScript and the YouTube API to scrape the YouTube Descriptions of 1000 of Fantano's reviews, getting the name of the LP, the Artist(s), the rating he gave, and the different genres the album falls under. 
+
+The data collection is done for the most part, however, it may change a bit in the coming days if I decide to manually add some albums of his that Fantano rated unconventionally like *NOT GOOD/10* or *CLASSIC/10*.
+
+[Link To The Google Sheet With My Scraped Data](https://docs.google.com/spreadsheets/d/1wWvVk2Z-KVhqDUwieRczkQhDDXaoiGvlXkAMG4sPYMY/edit?usp=sharing)
+
+### Why this data
+
+When I started this class I knew that I would have to eventually make a final project. I thought of different data sets that I would have a strong connection to but I couldn't really think of anything substantial. One day I came across a video that Fantano had made reacting to a dataset a viewer had made for him, trying to answer if he had an implicit gender bias in how he reviewed albums. This got me thinking that I could use his videos as data for this final project, and from there it was off to the races.
+
+I had used the Google Calendar API for a personal project in the past and so I assumed that they likely had a robust YouTube Data API as well. To my luck, they did, and I parsed through the most recent 1000 music reviews. Due to the limitations of the Free Version of the API scraping I was engaging in, I could only scrape 50 videos at a time. I'll include the code in this zip file if you're interested in seeing it for yourself. Another limitation I ran into was that they limited the number of times that you request YouTube video data per 24 hours unfortunately. As a result, I had to collect this data set over a couple days. Overall though, the collection process was really fun for me, and I enjoyed the text parsing puzzle. I was lucky in that for the last 10 years or so, Fantano had kept his video description format pretty consistent and so I didn't really have to modify my code that much. I was running into some issues with older video description formats, and so I decided to just round down to 1000 reviews instead of getting his entire 13 year catalog. 
+
+Most importantly, why this data? I wanted to use this data for a few reasons:
+
+1) I wanted to see if there was a discrepancy in the average reviews that Fantano gave. This could point towards a bias or preference towards a specific music genre or subgenre.
+
+2) I wanted to see if there were better years for music amongst the last 10 or so. Going into this project, I'm assuming that different music genres and subgenres got their starts in the later 2010s, and I'm excited to see these albums get their day in the catalog of Fantano's review. I'm interested to see how the music landscape changes overtime.
+
+3) I hope that this project exposes me to new good music albums. I've relied on Fantano for good music suggestions in the past (I can include some of those in my final project as a final note). I hope that in reviewing the catalog, I'm exposed to the 9's and the 10's that he has given out throughout the year (however few and far between).  
+
+*This isn't for a larger research project. I found the process quite interesting so far. The data scraping was a bit tricky to get at first, but I've enjoyed getting acquainted with the YouTube API.*
+
+## Visualization plan
+
+I plan on making an app/dashboard with a mix of animated and static graphics. I plan on making tabs for each of the most common music genres listed in my dataset. I plan on having a graph comparing every review, then subsequently every review in the most popular genres, and finally for each review in a individual subgenre. I plan on trying out a series of density plots, histograms, and boxplots to see which could be the best way to represent the data.
+
+*An aside for this section, Fantano is known for the flanel shirts that he wears in every review. He wears his yellow flanel for an album traditionally 8 or above and his red flannel for anything 3 or below. Everything in between could be a blue flanel, a black and white flanel or some random T-shirt. I think adding a flanel pattern to the histogram bars could be a really great final touch.*
+
+### Initial data issues
+
+I have been able to download the data and read it into R. I have been able to examine the data a little. I have not spotted any potential issues like difficulties wrangling data. Nor have I notices any data quality issues such as significant amounts of missing data. There is more than one type of data. There are integer values in the scores. There are categories in the genres, and there are the album and artist name for each data point.
+
+### Misc
+
+I'm planning on adding some extra footnotes here and there. I'm really looking forward to completing this final project. Have a great night!
